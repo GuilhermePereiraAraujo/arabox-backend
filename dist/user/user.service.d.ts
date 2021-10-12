@@ -14,8 +14,12 @@ export declare class UserService {
         avatarUrl: string;
         isAdmin: boolean;
     }>;
-    findAll(): import(".prisma/client").PrismaPromise<import(".prisma/client").User[]>;
-    findById(id: number): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;
+    findAll(): import(".prisma/client").PrismaPromise<(import(".prisma/client").User & {
+        profiles: import(".prisma/client").Profile[];
+    })[]>;
+    findById(id: number): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User & {
+        profiles: import(".prisma/client").Profile[];
+    }>;
     findByEmail(email: string): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;
     update(id: number, updateUserDto: UpdateUserDto): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;
     remove(id: number): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;

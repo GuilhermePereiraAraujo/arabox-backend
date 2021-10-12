@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateGameDto = void 0;
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const create_genre_dto_1 = require("../../genre/dto/create-genre.dto");
 class CreateGameDto {
@@ -48,6 +49,9 @@ __decorate([
 ], CreateGameDto.prototype, "gameplayLink", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => create_genre_dto_1.CreateGenreDto),
+    (0, class_validator_1.IsArray)(),
     __metadata("design:type", Array)
 ], CreateGameDto.prototype, "genres", void 0);
 __decorate([

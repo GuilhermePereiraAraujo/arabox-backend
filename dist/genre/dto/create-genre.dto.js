@@ -16,6 +16,10 @@ const create_game_dto_1 = require("../../game/dto/create-game.dto");
 class CreateGenreDto {
 }
 __decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateGenreDto.prototype, "genreName", void 0);
+__decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.ValidateNested)({ each: true }),
     (0, class_transformer_1.Type)(() => create_game_dto_1.CreateGameDto),

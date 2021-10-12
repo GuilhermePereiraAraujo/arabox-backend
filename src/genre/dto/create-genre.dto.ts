@@ -1,10 +1,11 @@
 import { Type } from "class-transformer";
-import { IsNumber, IsOptional, ValidateNested } from "class-validator";
+import { IsNumber, IsOptional, IsString, ValidateNested } from "class-validator";
 import { CreateGameDto } from "src/game/dto/create-game.dto";
 import { Genre } from "../entities/genre.entity";
 
 
 export class CreateGenreDto implements Genre {
+    @IsString()
     genreName: string;
     
     @IsOptional()

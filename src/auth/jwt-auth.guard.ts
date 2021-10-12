@@ -17,7 +17,7 @@ import { UserFromJwt } from './model/UserFromJwt';
 import { AuthRequest } from './model/AuthRequest';
 
 // Decorators
-import { IS_PUBLIC_KEY } from './public.decorator';
+import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {

@@ -19,7 +19,7 @@ const passport_1 = require("@nestjs/passport");
 const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
 const user_service_1 = require("../user/user.service");
-const public_decorator_1 = require("./public.decorator");
+const public_decorator_1 = require("../decorators/public.decorator");
 let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
     constructor(reflector, userService) {
         super();

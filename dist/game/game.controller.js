@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const game_service_1 = require("./game.service");
 const create_game_dto_1 = require("./dto/create-game.dto");
 const update_game_dto_1 = require("./dto/update-game.dto");
+const public_decorator_1 = require("../decorators/public.decorator");
 let GameController = class GameController {
     constructor(gameService) {
         this.gameService = gameService;
@@ -58,6 +59,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], GameController.prototype, "findOne", null);
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
