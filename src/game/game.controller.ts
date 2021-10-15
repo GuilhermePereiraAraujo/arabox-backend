@@ -8,6 +8,7 @@ import { Public } from 'src/decorators/public.decorator';
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
+  @Public()
   @Post()
   create(@Body() createGameDto: CreateGameDto) {
     return this.gameService.create(createGameDto);
