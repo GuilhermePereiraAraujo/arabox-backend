@@ -30,12 +30,6 @@ __decorate([
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "cpf", void 0);
 __decorate([
-    (0, class_validator_1.IsUrl)({
-        require_protocol: true,
-    }),
-    __metadata("design:type", String)
-], CreateUserDto.prototype, "avatarUrl", void 0);
-__decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.MinLength)(4),
     (0, class_validator_1.MaxLength)(20),

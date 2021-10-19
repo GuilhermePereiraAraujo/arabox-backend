@@ -14,6 +14,7 @@ export class GameController {
     return this.gameService.create(createGameDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.gameService.findAll();

@@ -6,7 +6,6 @@ export declare class User {
     email: string;
     cpf: string;
     profiles?: Profile[];
-    avatarUrl?: string;
     senha: string;
     isAdmin?: boolean;
 }

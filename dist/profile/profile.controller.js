@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const profile_service_1 = require("./profile.service");
 const create_profile_dto_1 = require("./dto/create-profile.dto");
 const update_profile_dto_1 = require("./dto/update-profile.dto");
+const public_decorator_1 = require("../decorators/public.decorator");
 let ProfileController = class ProfileController {
     constructor(profileService) {
         this.profileService = profileService;
@@ -38,6 +39,7 @@ let ProfileController = class ProfileController {
     }
 };
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

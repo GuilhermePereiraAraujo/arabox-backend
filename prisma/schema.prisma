@@ -17,7 +17,6 @@ model User{
   email String @unique
   senha String
   cpf String
-  avatarUrl String
   profiles Profile[]
   isAdmin Boolean @default(false)
 }

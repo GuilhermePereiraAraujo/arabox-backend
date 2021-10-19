@@ -6,4 +6,6 @@ export class Profile{
 
     avatarUrl: string;
 
+    userId: number;
+
 }

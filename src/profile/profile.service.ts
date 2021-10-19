@@ -8,11 +8,17 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 export class ProfileService {
   constructor(private readonly prisma: PrismaService){}
   create(createProfileDto: CreateProfileDto) {
+    const userId = createProfileDto.userId;
+
+    delete createProfileDto.userId;
+
+
+    
     const data: Prisma.ProfileCreateInput = {
       ...createProfileDto,
       user: {
         connect: {
-          id: createProfileDto.userId,
+          id: userId,
         },
       },
     };

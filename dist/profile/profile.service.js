@@ -17,9 +17,11 @@ let ProfileService = class ProfileService {
         this.prisma = prisma;
     }
     create(createProfileDto) {
+        const userId = createProfileDto.userId;
+        delete createProfileDto.userId;
         const data = Object.assign(Object.assign({}, createProfileDto), { user: {
                 connect: {
-                    id: createProfileDto.userId,
+                    id: userId,
                 },
             } });
         return this.prisma.profile.create({ data });

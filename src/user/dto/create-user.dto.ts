@@ -10,11 +10,6 @@ export class CreateUserDto implements User {
     email: string;
     @IsString()
     cpf: string;
-    @IsUrl({
-        require_protocol: true,
-    })
-    avatarUrl?: string
-    
     @IsString()
     @MinLength(4)
     @MaxLength(20)

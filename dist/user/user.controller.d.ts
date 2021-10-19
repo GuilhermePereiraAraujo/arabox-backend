@@ -12,7 +12,6 @@ export declare class UserController {
         surname: string;
         email: string;
         cpf: string;
-        avatarUrl: string;
         isAdmin: boolean;
     }>;
     findUser(user: User): {

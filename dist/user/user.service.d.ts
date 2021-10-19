@@ -11,7 +11,6 @@ export declare class UserService {
         surname: string;
         email: string;
         cpf: string;
-        avatarUrl: string;
         isAdmin: boolean;
     }>;
     findAll(): import(".prisma/client").PrismaPromise<(import(".prisma/client").User & {
