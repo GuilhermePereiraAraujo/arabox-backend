@@ -36,6 +36,9 @@ let UserController = class UserController {
     findById(id) {
         return this.userService.findById(+id);
     }
+    findByEmail(email) {
+        return this.userService.findByEmail(email);
+    }
     update(id, updateUserDto) {
         return this.userService.update(+id, updateUserDto);
     }
@@ -72,6 +75,15 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "findById", null);
 __decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)(':email'),
+    __param(0, (0, common_1.Param)('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "findByEmail", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),

@@ -19,6 +19,7 @@ export class GenreController {
     return this.genreService.findAll();
   }
 
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.genreService.findOne(+id);

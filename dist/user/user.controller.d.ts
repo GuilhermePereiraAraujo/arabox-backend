@@ -23,6 +23,7 @@ export declare class UserController {
     findById(id: string): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User & {
         profiles: import(".prisma/client").Profile[];
     }>;
+    findByEmail(email: string): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;
     update(id: string, updateUserDto: UpdateUserDto): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;
     remove(id: string): import(".prisma/client").Prisma.Prisma__UserClient<import(".prisma/client").User>;
 }

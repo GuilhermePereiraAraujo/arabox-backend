@@ -31,6 +31,13 @@ export class UserController {
     return this.userService.findById(+id);
   }
 
+  @Public()
+  @Get(':email')
+  findByEmail(@Param('email') email: string) {
+    return this.userService.findByEmail(email);
+  }
+
+  @Public()
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(+id, updateUserDto);
