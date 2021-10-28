@@ -9,17 +9,19 @@ export class ProfileService {
   constructor(private readonly prisma: PrismaService){}
   create(createProfileDto: CreateProfileDto) {
     const userId = createProfileDto.userId;
-
     delete createProfileDto.userId;
+    const gamesIds = createProfileDto.gamesIds;
+    delete createProfileDto.gamesIds;
 
-
-    
     const data: Prisma.ProfileCreateInput = {
       ...createProfileDto,
       user: {
         connect: {
           id: userId,
         },
+      },
+      games: {
+        connect: gamesIds?.map((id) => ({ id })),
       },
     };
     return this.prisma.profile.create({data});
@@ -36,10 +38,21 @@ export class ProfileService {
   }
 
   update(id: number, updateProfileDto: UpdateProfileDto) {
+    const gamesIds = updateProfileDto.gamesIds;
+    delete updateProfileDto.gamesIds;
+    const gamesDisconnectIds = updateProfileDto.gamesDisconnectIds;
+    delete updateProfileDto.gamesDisconnectIds;
+    const data  = {
+      ...updateProfileDto,
+      games: {
+        connect: gamesIds?.map((id) => ({ id })),
+        disconnect: gamesDisconnectIds?.map((id) => ({ id })),
+      },
+    };
     return this.prisma.profile.update({
       where: {id},
-      data: updateProfileDto,
-    })
+      data,
+    });
   }
 
   remove(id: number) {

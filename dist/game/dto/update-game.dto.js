@@ -20,5 +20,10 @@ __decorate([
     (0, class_validator_1.IsNumber)({}, { each: true }),
     __metadata("design:type", Array)
 ], UpdateGameDto.prototype, "genresDisconnectIds", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { each: true }),
+    __metadata("design:type", Array)
+], UpdateGameDto.prototype, "profilesDisconnectIds", void 0);
 exports.UpdateGameDto = UpdateGameDto;
 //# sourceMappingURL=update-game.dto.js.map

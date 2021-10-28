@@ -19,10 +19,14 @@ let ProfileService = class ProfileService {
     create(createProfileDto) {
         const userId = createProfileDto.userId;
         delete createProfileDto.userId;
+        const gamesIds = createProfileDto.gamesIds;
+        delete createProfileDto.gamesIds;
         const data = Object.assign(Object.assign({}, createProfileDto), { user: {
                 connect: {
                     id: userId,
                 },
+            }, games: {
+                connect: gamesIds === null || gamesIds === void 0 ? void 0 : gamesIds.map((id) => ({ id })),
             } });
         return this.prisma.profile.create({ data });
     }
@@ -35,9 +39,17 @@ let ProfileService = class ProfileService {
         });
     }
     update(id, updateProfileDto) {
+        const gamesIds = updateProfileDto.gamesIds;
+        delete updateProfileDto.gamesIds;
+        const gamesDisconnectIds = updateProfileDto.gamesDisconnectIds;
+        delete updateProfileDto.gamesDisconnectIds;
+        const data = Object.assign(Object.assign({}, updateProfileDto), { games: {
+                connect: gamesIds === null || gamesIds === void 0 ? void 0 : gamesIds.map((id) => ({ id })),
+                disconnect: gamesDisconnectIds === null || gamesDisconnectIds === void 0 ? void 0 : gamesDisconnectIds.map((id) => ({ id })),
+            } });
         return this.prisma.profile.update({
             where: { id },
-            data: updateProfileDto,
+            data,
         });
     }
     remove(id) {

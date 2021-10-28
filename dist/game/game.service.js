@@ -22,7 +22,7 @@ let GameService = class GameService {
         const data = Object.assign(Object.assign({}, createGameDto), { genres: {
                 connect: genreIds === null || genreIds === void 0 ? void 0 : genreIds.map((id) => ({ id })),
             } });
-        return this.prisma.game.create({ data, });
+        return this.prisma.game.create({ data });
     }
     findAll() {
         return this.prisma.game.findMany();
@@ -37,7 +37,14 @@ let GameService = class GameService {
         delete updateGameDto.genreIds;
         const genresDisconnectIds = updateGameDto.genresDisconnectIds;
         delete updateGameDto.genresDisconnectIds;
-        const data = Object.assign(Object.assign({}, updateGameDto), { genres: {
+        const profilesIds = updateGameDto.profilesIds;
+        delete updateGameDto.profilesIds;
+        const profilesDisconnectIds = updateGameDto.profilesDisconnectIds;
+        delete updateGameDto.profilesDisconnectIds;
+        const data = Object.assign(Object.assign({}, updateGameDto), { profiles: {
+                connect: profilesIds === null || profilesIds === void 0 ? void 0 : profilesIds.map((id) => ({ id })),
+                disconnect: profilesDisconnectIds === null || profilesDisconnectIds === void 0 ? void 0 : profilesDisconnectIds.map((id) => ({ id })),
+            }, genres: {
                 connect: genreIds === null || genreIds === void 0 ? void 0 : genreIds.map((id) => ({ id })),
                 disconnect: genresDisconnectIds === null || genresDisconnectIds === void 0 ? void 0 : genresDisconnectIds.map((id) => ({ id })),
             } });

@@ -13,6 +13,7 @@ exports.CreateGameDto = void 0;
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const create_genre_dto_1 = require("../../genre/dto/create-genre.dto");
+const create_profile_dto_1 = require("../../profile/dto/create-profile.dto");
 class CreateGameDto {
 }
 __decorate([
@@ -59,5 +60,16 @@ __decorate([
     (0, class_validator_1.IsNumber)({}, { each: true }),
     __metadata("design:type", Array)
 ], CreateGameDto.prototype, "genreIds", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => create_profile_dto_1.CreateProfileDto),
+    __metadata("design:type", Array)
+], CreateGameDto.prototype, "profiles", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { each: true }),
+    __metadata("design:type", Array)
+], CreateGameDto.prototype, "profilesIds", void 0);
 exports.CreateGameDto = CreateGameDto;
 //# sourceMappingURL=create-game.dto.js.map

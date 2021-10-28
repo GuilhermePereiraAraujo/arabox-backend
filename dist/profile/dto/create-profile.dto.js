@@ -10,7 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateProfileDto = void 0;
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
+const create_game_dto_1 = require("../../game/dto/create-game.dto");
 class CreateProfileDto {
 }
 __decorate([
@@ -27,5 +29,16 @@ __decorate([
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], CreateProfileDto.prototype, "userId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => create_game_dto_1.CreateGameDto),
+    __metadata("design:type", Array)
+], CreateProfileDto.prototype, "games", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { each: true }),
+    __metadata("design:type", Array)
+], CreateProfileDto.prototype, "gamesIds", void 0);
 exports.CreateProfileDto = CreateProfileDto;
 //# sourceMappingURL=create-profile.dto.js.map

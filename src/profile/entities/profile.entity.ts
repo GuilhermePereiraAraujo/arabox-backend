@@ -1,11 +1,9 @@
-export class Profile{
+import { Game } from 'src/game/entities/game.entity';
 
-    id? : number;
-
-    nickname: string;
-
-    avatarUrl: string;
-
-    userId: number;
-
+export class Profile {
+  id?: number;
+  nickname: string;
+  avatarUrl: string;
+  userId: number;
+  games?: Game[];
 }

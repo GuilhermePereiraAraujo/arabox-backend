@@ -1,5 +1,6 @@
 import { CreateGenreDto } from "src/genre/dto/create-genre.dto";
-import { Game } from "../entities/game.entity";
+import { CreateProfileDto } from 'src/profile/dto/create-profile.dto';
+import { Game } from '../entities/game.entity';
 export declare class CreateGameDto implements Game {
     title: string;
     imageUrl?: string;
@@ -10,4 +11,6 @@ export declare class CreateGameDto implements Game {
     gameplayLink: string;
     genres?: CreateGenreDto[];
     genreIds?: number[];
+    profiles?: CreateProfileDto[];
+    profilesIds: number[];
 }
