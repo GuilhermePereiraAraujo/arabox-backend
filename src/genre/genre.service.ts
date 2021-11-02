@@ -44,7 +44,7 @@ export class GenreService {
     delete updateGenreDto.gamesIds;
     const gamesDisconnectIds = updateGenreDto.gamesDisconnectIds;
     delete updateGenreDto.gamesDisconnectIds;
-    const data = {
+    const data: Prisma.GenreUpdateInput = {
       ...updateGenreDto,
       games: {
         connect: gamesIds?.map((id) => ({id})),

@@ -42,7 +42,7 @@ export class ProfileService {
     delete updateProfileDto.gamesIds;
     const gamesDisconnectIds = updateProfileDto.gamesDisconnectIds;
     delete updateProfileDto.gamesDisconnectIds;
-    const data  = {
+    const data: Prisma.ProfileUpdateInput = {
       ...updateProfileDto,
       games: {
         connect: gamesIds?.map((id) => ({ id })),

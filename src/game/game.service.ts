@@ -1,3 +1,4 @@
+import { Prisma } from '.prisma/client';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateGameDto } from './dto/create-game.dto';
@@ -13,7 +14,7 @@ export class GameService {
     const profilesIds = createGameDto.profilesIds;
     delete createGameDto.profilesIds;
 
-    const data = {
+    const data: Prisma.GameCreateInput ={
       ...createGameDto,
       profiles: {
         connect: profilesIds?.map((id) => ({ id })),
@@ -44,7 +45,7 @@ export class GameService {
     delete updateGameDto.profilesIds;
     const profilesDisconnectIds = updateGameDto.profilesDisconnectIds;
     delete updateGameDto.profilesDisconnectIds;
-    const data = {
+    const data: Prisma.GameUpdateInput = {
       ...updateGameDto,
       profiles: {
         connect: profilesIds?.map((id) => ({ id })),
